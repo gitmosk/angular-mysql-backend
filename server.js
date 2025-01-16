@@ -21,6 +21,10 @@ const db = mysql.createConnection({
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('Backend is running!');
+});
+
 // Connect to the database
 db.connect((err) => {
     if (err) {
@@ -46,5 +50,5 @@ app.get('/data', (req, res) => {
 // Start the server
 const PORT = process.env.PORT || 3000; // Allow flexibility to set the port via .env
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
